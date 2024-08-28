@@ -1,0 +1,21 @@
+<button (click)="newUser()">New User</button>
+
+<table class="table-bordered" style="border: 1px solid black; border-collapse: collapse;">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    
+    <tr *ngFor="let d of this.lists">
+        <td>{{d.id}}</td>
+        <td>{{d.name}}</td>
+        <td>{{d.email}}</td>
+        <td>{{d.age}}</td>
+        <td><button (click)="Edit(d.id)">Edit</button></td>
+        <td><button (click)="onDelete(d.id)">Delete</button></td>
+    </tr>
+</table>

@@ -1,0 +1,30 @@
+<h2>User Registration form</h2>
+<form [formGroup]="myForm">
+    <div>
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" />
+        <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched" style="color: red;">
+            Name is required and should be at least 3 characters.
+        </div>
+    </div>
+
+    <div>
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" />
+        <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched" style="color: red;">
+            Enter a valid email.
+        </div>
+
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input id="age" type="number" formControlName="age" />
+        <div *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched" style="color: red;">
+            Age is required and must be 18 or older.
+        </div>
+    </div>
+
+    <button  (click)="onSubmit()" [disabled]="myForm.invalid">Submit</button>
+    <button (click)="Cancel()">Cancel</button>
+
+</form>
